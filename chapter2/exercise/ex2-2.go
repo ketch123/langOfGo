@@ -8,20 +8,22 @@ import (
 	"strings"
 
 	"ketch123/langOfGo/chapter2/exercise/anyconv"
+	//"./anyconv"
 )
 
 func main() {
-	if len(os.Args) == 0 {
-		fmt.fprint("usage: cf [unit] [num]...")
-		fmt.fprint("unit: temp | weight | length")
-		os.exit(1)
-	} else if len(os.Args) == 1 {
+	var nums []string
+	if len(os.Args) == 1 {
+		fmt.Println("usage: cf [unit] [num]...")
+		fmt.Println("unit: temp | weight | length")
+		os.Exit(0)
+	} else if len(os.Args) == 2 {
 		stdin := bufio.NewScanner(os.Stdin)
 		stdin.Scan()
 		text := stdin.Text()
-		nums := strings.Fields(text)
+		nums = strings.Fields(text)
 	} else {
-		nums := os.Args[2:]
+		nums = os.Args[2:]
 	}
 	unit := os.Args[1]
 
@@ -32,22 +34,22 @@ func main() {
 			os.Exit(1)
 		}
 		switch unit {
-		case temp, Temp, TEMP:
+		case "temp", "Temp", "TEMP":
 			f := anyconv.Fahrenheit(t)
 			c := anyconv.Celsius(t)
 			fmt.Printf("%s = %s, %s = %s\n", f, anyconv.FToC(f), c, anyconv.CToF(c))
-		case weight, Weight, WEIGHT:
+		case "weight", "Weight", "WEIGHT":
 			kg := anyconv.Kg(t)
 			lb := anyconv.Pound(t)
-			fmt.Printf("%s = %s, %s = %s\n", f, anyconv.KgToPl(f), c, anyconv.PlToKg(c))
-		case length, Length, LENGTH:
+			fmt.Printf("%s = %s, %s = %s\n", kg, anyconv.KgToPl(kg), lb, anyconv.PlToKg(lb))
+		case "length", "Length", "LENGTH":
 			m := anyconv.Meter(t)
 			ft := anyconv.Feet(t)
-			fmt.Printf("%s = %s, %s = %s\n", f, anyconv.MToFt(f), c, anyconv.FtToM(c))
+			fmt.Printf("%s = %s, %s = %s\n", m, anyconv.MToFt(m), ft, anyconv.FtToM(ft))
 		default:
-			fmt.Fprint("unsupported unit")
-			fmt.Fprint("unit: temp | weight | length")
-			os.exit(1)
+			fmt.Println("unsupported unit")
+			fmt.Println("unit: temp | weight | length")
+			os.Exit(0)
 		}
 	}
 }

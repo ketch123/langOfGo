@@ -3,7 +3,7 @@ package anyconv
 import "fmt"
 
 type Celsius float64
-type Fahremheit float64
+type Fahrenheit float64
 type Feet float64
 type Meter float64
 type Kg float64
@@ -16,8 +16,8 @@ const (
 )
 
 func (c Celsius) String() string    { return fmt.Sprintf("%g°C", c) }
-func (f Fahremheit) String() string { return fmt.Sprintf("%g°F", f) }
+func (f Fahrenheit) String() string { return fmt.Sprintf("%g°F", f) }
 func (ft Feet) String() string      { return fmt.Sprintf("%gft", ft) }
 func (m Meter) String() string      { return fmt.Sprintf("%gm", m) }
 func (kg Kg) String() string        { return fmt.Sprintf("%gkg", kg) }
-func (p Pound) String() string      { return fmt.Sprintf("%glb") }
+func (p Pound) String() string      { return fmt.Sprintf("%glb", p) }
