@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"ketch123/langOfGo/chapter2/exercise/anyconv"
 )
 
 func main() {
@@ -31,17 +33,17 @@ func main() {
 		}
 		switch unit {
 		case temp, Temp, TEMP:
-			f := tempconv.Fahrenheit(t)
-			c := tempconv.Celsius(t)
-			fmt.Printf("%s = %s, %s = %s\n", f, tempconv.FToC(f), c, tempconv.CToF(c))
+			f := anyconv.Fahrenheit(t)
+			c := anyconv.Celsius(t)
+			fmt.Printf("%s = %s, %s = %s\n", f, anyconv.FToC(f), c, anyconv.CToF(c))
 		case weight, Weight, WEIGHT:
-			kg := tempconv.Kg(t)
-			lb := tempconv.Pound(t)
-			fmt.Printf("%s = %s, %s = %s\n", f, tempconv.KgToPl(f), c, tempconv.PlToKg(c))
+			kg := anyconv.Kg(t)
+			lb := anyconv.Pound(t)
+			fmt.Printf("%s = %s, %s = %s\n", f, anyconv.KgToPl(f), c, anyconv.PlToKg(c))
 		case length, Length, LENGTH:
-			m := tempconv.Meter(t)
-			ft := tempconv.Feet(t)
-			fmt.Printf("%s = %s, %s = %s\n", f, tempconv.MToFt(f), c, tempconv.FtToM(c))
+			m := anyconv.Meter(t)
+			ft := anyconv.Feet(t)
+			fmt.Printf("%s = %s, %s = %s\n", f, anyconv.MToFt(f), c, anyconv.FtToM(c))
 		default:
 			fmt.Fprint("unsupported unit")
 			fmt.Fprint("unit: temp | weight | length")
