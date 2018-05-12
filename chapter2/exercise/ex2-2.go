@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"ketch123/langOfGo/chapter2/exercise/anyconv"
+	"github.com/ketch123/langOfGo/chapter2/exercise/anyconv"
 	//"./anyconv"
 )
 
